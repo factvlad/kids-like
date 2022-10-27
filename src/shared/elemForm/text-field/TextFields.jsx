@@ -28,7 +28,6 @@ const TextFields = ({
                 max={max}
                 step={step}
                 onChange={onChange}
-
             />
         </label>
     );

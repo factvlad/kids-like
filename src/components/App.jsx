@@ -1,16 +1,12 @@
-import s from "./style.module.scss"
+// import s from "./style.module.scss"
+import Header from "./header/Header";
+import UserRoutes from "./user-routes/UserRoutes";
 
 export const App = () => {
   return (
-    <div className={ s.div }
-      style={ {
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      } }
-    >
-      Kids Like
-    </div>
+    <>
+      <Header />
+      <UserRoutes />
+    </>
   );
 };

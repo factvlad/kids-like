@@ -1,6 +1,7 @@
 const TextFields = ({
     id,
     name,
+    value,
     required,
     children,
     classNameLabel,
@@ -20,6 +21,7 @@ const TextFields = ({
                 id={id}
                 name={name}
                 type={type}
+                value={value}
                 placeholder={placeholder}
                 pattern={pattern}
                 required={required}

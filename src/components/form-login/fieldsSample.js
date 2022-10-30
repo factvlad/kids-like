@@ -10,9 +10,10 @@ export const fields = {
   },
   password: {
     name: 'password',
-    placeholder: 'your@email.com',
+    placeholder: 'your password',
     type: 'password',
     required: true,
+    pattern: '[a-zA-Z0-9]{8,}',
     title:
       'The password cannot be less than 8 characters and must contain at least one number, one lowercase, and one uppercase Latin letter. For example - Butterfly01',
   },

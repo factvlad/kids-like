@@ -1,21 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { registerOperation, loginOperation, logoutOperation } from "./auth-operations"
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  registerOperation,
+  loginOperation,
+  logoutOperation,
+} from './auth-operations';
 
 const initialState = {
   user: {},
+  token: '',
   isLogin: false,
   loading: false,
   error: null,
-}
+};
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   extraReducers: {
-    [registerOperation.pending]: store => ({ ...store, loading: true, error: null }),
+    [registerOperation.pending]: store => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
     [registerOperation.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.user = payload
+      store.user = payload;
+      store.token = payload.token;
       store.isLogin = true;
     },
     [registerOperation.rejected]: (store, { payload }) => ({
@@ -23,10 +33,15 @@ const authSlice = createSlice({
       loading: true,
       error: payload,
     }),
-    [loginOperation.pending]: store => ({ ...store, loading: true, error: null }),
+    [loginOperation.pending]: store => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
     [loginOperation.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.user = payload
+      store.user = payload;
+      store.token = payload.token;
       store.isLogin = true;
     },
     [loginOperation.rejected]: (store, { payload }) => ({
@@ -34,7 +49,11 @@ const authSlice = createSlice({
       loading: true,
       error: payload,
     }),
-    [logoutOperation.pending]: store => ({ ...store, loading: true, error: null }),
+    [logoutOperation.pending]: store => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
     [logoutOperation.fulfilled]: (store, { payload }) => ({ ...initialState }),
     [logoutOperation.rejected]: (store, { payload }) => ({
       ...store,
@@ -42,6 +61,6 @@ const authSlice = createSlice({
       error: payload,
     }),
   },
-})
+});
 
-export default authSlice.reducer
+export default authSlice.reducer;

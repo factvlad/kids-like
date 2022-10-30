@@ -26,3 +26,27 @@ export const taskActiveOperation = createAsyncThunk(
     }
   }
 );
+
+export const taskSingleActiveOperation = createAsyncThunk(
+  'task/taskSingleActive',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await task.taskSingleActive(data);
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const taskSwitchOperation = createAsyncThunk(
+  'task/taskSwitch',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await task.taskSwitch(data);
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

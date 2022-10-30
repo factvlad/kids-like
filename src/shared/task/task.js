@@ -7,16 +7,15 @@ export const task = async obj => {
 
 export const taskActive = async data => {
   const result = await instance.patch('task/active', data);
-  console.log(result);
   return result;
 };
 
-export const taskSingleActive = async data => {
-  const { result } = await instance.patch(`task/single-active`, data);
+export const taskSingleActive = async ({ taskId, days }) => {
+  const result = await instance.patch(`task/single-active/${taskId}`, days);
   return result;
 };
 
-export const taskSwitch = async (taskId, data) => {
-  const { result } = await instance.patch(`task/switch/${taskId}`, data);
+export const taskSwitch = async ({ taskId, date }) => {
+  const result = await instance.patch(`task/switch/${taskId}`, date);
   return result;
 };

@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { taskOperation, taskActiveOperation } from './task-operations';
+import {
+  taskOperation,
+  taskActiveOperation,
+  taskSingleActiveOperation,
+  taskSwitchOperation,
+} from './task-operations';
 
 const initialState = {
   taskWeek: {},
@@ -40,6 +45,34 @@ const taskSlice = createSlice({
       store.taskActive = payload;
     },
     [taskActiveOperation.rejected]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: payload,
+    }),
+    [taskSingleActiveOperation.pending]: store => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
+    [taskSingleActiveOperation.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.taskSingleActive = payload;
+    },
+    [taskSingleActiveOperation.rejected]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: payload,
+    }),
+    [taskSwitchOperation.pending]: store => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
+    [taskSwitchOperation.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.taskSwitch = payload;
+    },
+    [taskSwitchOperation.rejected]: (store, { payload }) => ({
       ...store,
       loading: false,
       error: payload,

@@ -9,7 +9,7 @@ import {
 const PlanningPage = () => {
   const dispatch = useDispatch();
 
-  const storage = useSelector(store => store.auth.user);
+  const storage = useSelector(store => store.userInfo.user);
   console.log(storage);
   const page = () => {
     const data = {
@@ -48,8 +48,8 @@ const PlanningPage = () => {
     dispatch(taskActiveOperation(data));
   };
   const singleActiveRequest = () => {
-    const taskId = storage.week.tasks[3]._id;
-    const days = storage.week.tasks[3].days.map(item => item.isActive);
+    const taskId = storage.week.tasks[4]._id;
+    const days = storage.week.tasks[4].days.map(item => item.isActive);
     // const days = {
     //   days: [true, true, false, true, false, false, false],
     // };
@@ -61,8 +61,8 @@ const PlanningPage = () => {
     dispatch(taskSingleActiveOperation(data));
   };
   const switchFunction = () => {
-    const taskId = storage.week.tasks[3]._id;
-    const date = storage.week.tasks[3].days[3].date;
+    const taskId = storage.week.tasks[4]._id;
+    const date = storage.week.tasks[4].days[4].date;
     console.log(taskId);
     console.log(date);
 

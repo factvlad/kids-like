@@ -34,7 +34,7 @@ const AuthorizationPage = () => {
     console.log(data);
     dispatch(registerOperation(data));
   };
-  return <FormLogIn onSubmit={onSubmitForm} changeFetch={changeEnterFetch} />;
+  return <div className='container'><FormLogIn onSubmit={onSubmitForm} changeFetch={changeEnterFetch} /></div>;
 };
 
 export default AuthorizationPage;

@@ -1,0 +1,11 @@
+@import 'shared/styles/';
+
+.header_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+}
+.header_nav_box {
+  display: flex;
+}

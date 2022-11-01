@@ -6,6 +6,8 @@ import {
   taskSwitchOperation,
 } from 'redux/task/task-operations';
 
+import { getGiftsOperation, buyGiftsOperation } from 'redux/gifts/gifts-operations';
+
 const PlanningPage = () => {
   const dispatch = useDispatch();
 
@@ -73,6 +75,20 @@ const PlanningPage = () => {
     console.log(data);
     dispatch(taskSwitchOperation(data));
   };
+  const getGiftsFunc = () => {
+    dispatch(getGiftsOperation())
+  }
+  const buyGiftsFunc = () => {
+    const data = {
+      giftIds: [
+        1,
+        2,
+        8
+      ]
+    }
+
+    dispatch(buyGiftsOperation(data))
+  }
   return (
     <div>
       <p>Planning page</p>
@@ -89,6 +105,14 @@ const PlanningPage = () => {
       <br />
       <button type="button" onClick={switchFunction}>
         Switch
+      </button>
+      <br />
+      <button type="button" onClick={getGiftsFunc}>
+        getAllGifts
+      </button>
+      <br />
+      <button type="button" onClick={buyGiftsFunc}>
+        buyGifts
       </button>
     </div>
   );

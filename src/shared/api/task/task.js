@@ -1,4 +1,4 @@
-import { instance } from 'shared/auth/auth';
+import { instance } from 'shared/api/auth/auth';
 
 export const task = async obj => {
   const { data: result } = await instance.post('task', obj);

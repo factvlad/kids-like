@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import * as task from '../../shared/task/task';
+import * as task from '../../shared/api/task/task';
 
 export const taskOperation = createAsyncThunk(
   'task/task',

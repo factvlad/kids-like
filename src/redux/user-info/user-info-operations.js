@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { setToken } from 'shared/auth/auth';
+import { setToken } from 'shared/api/auth/auth';
 import { getUserInfo } from 'shared/api/user-info/userInfo';
 
 export const getUserInfoOperation = createAsyncThunk(

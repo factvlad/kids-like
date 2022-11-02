@@ -1,6 +1,7 @@
 const AwardsPage = () => {
     return (
-        <p>Awards page</p>
+        <div className="container"><p>Awards page</p></div>
+
     );
 }
 

@@ -90,7 +90,7 @@ const PlanningPage = () => {
     dispatch(buyGiftsOperation(data))
   }
   return (
-    <div>
+    <div className='container'>
       <p>Planning page</p>
       <button type="button" onClick={page}>
         Запрос

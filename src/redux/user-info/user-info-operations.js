@@ -4,11 +4,16 @@ import { getUserInfo } from 'shared/api/user-info/userInfo';
 
 export const getUserInfoOperation = createAsyncThunk(
   'user/info',
-  async (_, { rejectWithValue, getState, dispatch }) => {
+  async (authToken, { rejectWithValue, getState, dispatch }) => {
     try {
       const state = getState();
       const token = state.auth.token;
 
+      if (authToken) {
+        setToken(authToken);
+        const result = await getUserInfo();
+        return result;
+      }
       if (!token) {
         return rejectWithValue('token is invalid');
       }

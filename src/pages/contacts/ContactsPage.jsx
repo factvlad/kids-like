@@ -1,6 +1,7 @@
 const ContactsPage = () => {
     return (
-        <p>Contacts page</p>
+        <div className="container"><p>Contacts page</p></div>
+
     );
 }
 

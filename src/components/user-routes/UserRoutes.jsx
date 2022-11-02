@@ -1,6 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
+import PrivateRoute from "components/privateRoute/PrivateRoute";
+import PublicRoute from "components/publicRoute/PublicRoute";
+
 const Main = lazy(() => import('pages/main/MainPage'));
 const Awards = lazy(() => import('pages/awards/AwardsPage'));
 const Authorization = lazy(() => import('pages/authorization/AuthorizationPage'));
@@ -11,11 +14,15 @@ const UserRoutes = () => {
     return (
         <Suspense>
             <Routes>
-                <Route path='/' element={<Main />} />
-                <Route path='/authorization' element={<Authorization />} />
-                <Route path='/awards' element={<Awards />} />
+                <Route element={<PublicRoute />}>
+                    <Route path='/authorization' element={<Authorization />} />
+                </Route>
+                <Route element={<PrivateRoute />}>
+                    <Route path='/' element={<Main />} />
+                    <Route path='/awards' element={<Awards />} />
+                    <Route path='/planning' element={<Planning />} />
+                </Route>
                 <Route path='/contacts' element={<Contacts />} />
-                <Route path='/planning' element={<Planning />} />
             </Routes>
         </Suspense>
 
